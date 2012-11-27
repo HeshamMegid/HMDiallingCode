@@ -21,5 +21,5 @@ Feel free to do whatever you want with this code.
 
 If this code was helpful, I would love to hear from you.
 
-[@HeshamMegid](http://twitter.com/HeshamMegid)
+[@HeshamMegid](http://twitter.com/HeshamMegid)   return
 [http://hesh.am](http://hesh.am)
