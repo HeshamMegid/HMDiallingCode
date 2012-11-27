@@ -8,6 +8,7 @@ Usage
 Import HMDiallingCode.m, HMDiallingCode.h and DiallingCodes.plist into your project and add CoreLocation into your linked libraries.
 
 First, init your object with a delegate
+
 ```- (id)initWithDelegate:(id<HMDiallingCodeDelegate>)delegate;```
 
 Then call ```getDiallingCode``` to start the retrieval.
