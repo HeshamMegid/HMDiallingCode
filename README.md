@@ -5,9 +5,9 @@ HMDiallingCode gets the dialling code of the user's current location. It uses Co
 
 Usage
 -----
-Import HMDiallingCode.m, HMDiallingCode.h and DiallingCodes.plist into your project and add CoreLocation into your linked libraries.
+First, import HMDiallingCode.m, HMDiallingCode.h and DiallingCodes.plist into your project, and add CoreLocation to your linked libraries.
 
-First, init your object with a delegate
+Then init your object with a delegate:
 
 ```- (id)initWithDelegate:(id<HMDiallingCodeDelegate>)delegate;```
 
@@ -18,3 +18,8 @@ You should implement the methods of ```HMDiallingCodeDelegate``` to get call bac
 License
 --------
 Feel free to do whatever you want with this code.
+
+If this code was helpful, I would love to hear from you.
+
+[@HeshamMegid](http://twitter.com/HeshamMegid)
+[http://hesh.am](http://hesh.am)
