@@ -10,7 +10,11 @@
 
 @protocol HMDiallingCodeDelegate <NSObject>
 
-- (void)didGetDiallingCode:(NSString *)diallingCode forCountry:(NSString *)country;
+@optional
+- (void)didGetDiallingCode:(NSString *)diallingCode forCountry:(NSString *)countryCode;
+- (void)didGetCountries:(NSArray *)countries forDiallingCode:(NSString *)diallingCode;
+
+@required
 - (void)failedToGetDiallingCode;
 
 @end
@@ -18,7 +22,9 @@
 @interface HMDiallingCode : NSObject <CLLocationManagerDelegate>
 
 - (id)initWithDelegate:(id<HMDiallingCodeDelegate>)delegate;
-- (void)getDiallingCode;
+- (void)getDiallingCodeForCurrentLocation;
+- (void)getDiallingCodeForCountry:(NSString *)country;
+- (void)getCountriesWithDiallingCode:(NSString *)diallingCode;
 
 @property (nonatomic, assign) id<HMDiallingCodeDelegate> delegate;
 

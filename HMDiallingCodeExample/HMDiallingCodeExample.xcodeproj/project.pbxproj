@@ -18,9 +18,9 @@
 		54A484E4166CE99B005EC6BD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A484E3166CE99B005EC6BD /* Default-568h@2x.png */; };
 		54A484E7166CE99B005EC6BD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A484E6166CE99B005EC6BD /* ViewController.m */; };
 		54A484EA166CE99B005EC6BD /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54A484E8166CE99B005EC6BD /* ViewController.xib */; };
-		54A484F4166CEA61005EC6BD /* DiallingCodes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54A484F1166CEA61005EC6BD /* DiallingCodes.plist */; };
-		54A484F5166CEA61005EC6BD /* HMDiallingCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A484F3166CEA61005EC6BD /* HMDiallingCode.m */; };
 		54A484F7166CEA73005EC6BD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A484F6166CEA73005EC6BD /* CoreLocation.framework */; };
+		54D623411675163C00E9C862 /* DiallingCodes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54D6233E1675163C00E9C862 /* DiallingCodes.plist */; };
+		54D623421675163C00E9C862 /* HMDiallingCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D623401675163C00E9C862 /* HMDiallingCode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,10 +40,10 @@
 		54A484E5166CE99B005EC6BD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		54A484E6166CE99B005EC6BD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		54A484E9166CE99B005EC6BD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
-		54A484F1166CEA61005EC6BD /* DiallingCodes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DiallingCodes.plist; sourceTree = "<group>"; };
-		54A484F2166CEA61005EC6BD /* HMDiallingCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMDiallingCode.h; sourceTree = "<group>"; };
-		54A484F3166CEA61005EC6BD /* HMDiallingCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMDiallingCode.m; sourceTree = "<group>"; };
 		54A484F6166CEA73005EC6BD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		54D6233E1675163C00E9C862 /* DiallingCodes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DiallingCodes.plist; sourceTree = "<group>"; };
+		54D6233F1675163C00E9C862 /* HMDiallingCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMDiallingCode.h; sourceTree = "<group>"; };
+		54D623401675163C00E9C862 /* HMDiallingCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMDiallingCode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +92,7 @@
 		54A484D3166CE99B005EC6BD /* HMDiallingCodeExample */ = {
 			isa = PBXGroup;
 			children = (
-				54A484F0166CEA61005EC6BD /* HMDiallingCode */,
+				54D6233D1675163C00E9C862 /* HMDiallingCode */,
 				54A484DC166CE99B005EC6BD /* AppDelegate.h */,
 				54A484DD166CE99B005EC6BD /* AppDelegate.m */,
 				54A484E5166CE99B005EC6BD /* ViewController.h */,
@@ -117,14 +117,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		54A484F0166CEA61005EC6BD /* HMDiallingCode */ = {
+		54D6233D1675163C00E9C862 /* HMDiallingCode */ = {
 			isa = PBXGroup;
 			children = (
-				54A484F1166CEA61005EC6BD /* DiallingCodes.plist */,
-				54A484F2166CEA61005EC6BD /* HMDiallingCode.h */,
-				54A484F3166CEA61005EC6BD /* HMDiallingCode.m */,
+				54D6233E1675163C00E9C862 /* DiallingCodes.plist */,
+				54D6233F1675163C00E9C862 /* HMDiallingCode.h */,
+				54D623401675163C00E9C862 /* HMDiallingCode.m */,
 			);
-			path = HMDiallingCode;
+			name = HMDiallingCode;
+			path = ../../HMDiallingCode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,7 +184,7 @@
 				54A484E2166CE99B005EC6BD /* Default@2x.png in Resources */,
 				54A484E4166CE99B005EC6BD /* Default-568h@2x.png in Resources */,
 				54A484EA166CE99B005EC6BD /* ViewController.xib in Resources */,
-				54A484F4166CEA61005EC6BD /* DiallingCodes.plist in Resources */,
+				54D623411675163C00E9C862 /* DiallingCodes.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +198,7 @@
 				54A484DA166CE99B005EC6BD /* main.m in Sources */,
 				54A484DE166CE99B005EC6BD /* AppDelegate.m in Sources */,
 				54A484E7166CE99B005EC6BD /* ViewController.m in Sources */,
-				54A484F5166CEA61005EC6BD /* HMDiallingCode.m in Sources */,
+				54D623421675163C00E9C862 /* HMDiallingCode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +319,7 @@
 				54A484EF166CE99B005EC6BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

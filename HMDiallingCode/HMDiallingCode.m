@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSDictionary *diallingCodesDictionary;
 
 - (void)geocodeLocation:(CLLocation *)location;
-- (NSString *)diallingCodeForCountry:(NSString *)country;
+- (NSString *)codeFromDictionaryForCountry:(NSString *)country;
 @end
 
 @implementation HMDiallingCode
@@ -28,18 +28,53 @@
 - (id)init {
     self = [super init];
     if (self != nil) {
-        self.locationManager = [[CLLocationManager alloc] init];
-        self.locationManager.delegate = self;
-        
         NSString * plistPath = [[NSBundle mainBundle] pathForResource:@"DiallingCodes" ofType:@"plist"];
         self.diallingCodesDictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
     }
     return self;
 }
 
-- (void)getDiallingCode {
+#pragma mark -
+
+- (void)getDiallingCodeForCurrentLocation {
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
     [self.locationManager startUpdatingLocation];
 }
+
+- (void)getDiallingCodeForCountry:(NSString *)country {
+    NSString *diallingCode = [self codeFromDictionaryForCountry:country];
+    
+    if (diallingCode && diallingCode.length > 0) {
+        if ([self.delegate respondsToSelector:@selector(didGetDiallingCode:forCountry:)])
+            [self.delegate didGetDiallingCode:diallingCode forCountry:country];
+    } else {
+        if ([self.delegate respondsToSelector:@selector(failedToGetDiallingCode)])
+            [self.delegate failedToGetDiallingCode];
+    }
+}
+
+- (void)getCountriesWithDiallingCode:(NSString *)diallingCode {
+    if ([diallingCode hasPrefix:@"+"]) {
+        diallingCode = [diallingCode substringFromIndex:1];
+    }
+    
+    NSMutableArray *countriesArray = [[NSMutableArray alloc] init];
+    [self.diallingCodesDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        if ([obj isEqual:diallingCode])
+            [countriesArray addObject:key];
+    }];
+    
+    if (countriesArray.count > 0) {
+        if ([self.delegate respondsToSelector:@selector(didGetCountries:forDiallingCode:)])
+            [self.delegate didGetCountries:countriesArray forDiallingCode:diallingCode];
+    } else {
+        if ([self.delegate respondsToSelector:@selector(failedToGetDiallingCode)])
+            [self.delegate failedToGetDiallingCode];
+    }
+}
+
+#pragma mark -
 
 - (void)geocodeLocation:(CLLocation *)location {
     CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
@@ -47,7 +82,7 @@
         [placemarks enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             CLPlacemark *aPlacemark = (CLPlacemark *)obj;
             NSString *country = aPlacemark.ISOcountryCode;
-            NSString *diallingCode = [self diallingCodeForCountry:country];
+            NSString *diallingCode = [self codeFromDictionaryForCountry:country];
             
             if (diallingCode && diallingCode.length > 0) {
                 if ([self.delegate respondsToSelector:@selector(didGetDiallingCode:forCountry:)])
@@ -61,7 +96,7 @@
     }];
 }
 
-- (NSString *)diallingCodeForCountry:(NSString *)country {
+- (NSString *)codeFromDictionaryForCountry:(NSString *)country {
     return [self.diallingCodesDictionary objectForKey:[country lowercaseString]];
 }
 
